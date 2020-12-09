@@ -1,12 +1,12 @@
 # Hijacker-assist
 A tiny flask app for helping pentesters and bug hunters in XSS, Session Hijacking, Session Riding and Cookie Thieve.
 
-# Dependencies:
+## Dependencies:
 python 3
 1. Flask
 2. argparser !
 
-# Install & usage:
+## Install & usage:
 
 ```cd /opt```
 
@@ -23,3 +23,9 @@ or
 Then you can use your IP & Port into your payloads.
 
 ***IMPORTANT:*** add your JavaScript (or any other) file(s) in ```/js``` sub-directory and will avaliable on ```IP:PORT/js/<Your-File-Name>``` 
+
+## Paylods:
+```/js/1.js``` is a payload sample. (just change IP and Port)
+
+More?
+- Coming soon!
