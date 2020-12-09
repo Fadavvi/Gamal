@@ -1,0 +1,12 @@
+[Unit]
+Description=Start hijacker-assist
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=/usr/bin/python3 /opt/Hijacker-assist/hijacker-assist.py
+
+[Install]
+WantedBy=multi-user.target
