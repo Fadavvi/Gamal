@@ -13,7 +13,8 @@ python 3
 
 ```cd Gamal```
 
-```python3 gamal.py```  Default configuration ==> IP binding: 0.0.0.0, Port: 1337, Log: gamal.log, Canary-String: BooqBooqGamal
+```python3 gamal.py```  
+Default configuration: IP binding: `0.0.0.0`, Port: `1337`, Log: `gamal.log`, Canary-String: `BooqBooqGamal`
 
 or
 
