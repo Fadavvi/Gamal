@@ -21,13 +21,19 @@ or
 
 Then you can use your IP & Port in your XSS | XXE | Open-Redirect | Etc. payloads
 
-***IMPORTANT:*** Serve your files in ```/f``` folder ==>  ```http://IP:PORT/f/<Your-FileName>``` 
+***Note:*** Add your files in ```/f``` folder ==>  ```http://IP:PORT/f/<Your-FileName>``` 
 
 ## Paylods:
 ```/f/xss.js``` XSS Sample function
+
 ```/f/CORS.html``` CORS sample script
+
 ```/f/CSRF.html``` CSRF sample page
+
 ```/f/CSWSH.html``` Cross-Site WebSocket Hijacking (CSWSH) script
+
 ```/f/meta.jpg``` XSS in Meta-data 
+
 ```/f/EBXXE.dtd``` XXE .dtd sample file
+
 ```/f/xxe1.svg``` and ```/f/xxe2.svg``` XXE in SVG file
