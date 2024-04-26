@@ -8,7 +8,7 @@ app = Flask(__name__,static_url_path='')
 #------------------------------------------
 @app.route('/info', methods=['GET','POST']) # Print info 
 def info():
-    return "<h3>Gamal v0.3 | Milad Fadavvi</h3>" 
+    return "<h3>Gamal v0.4 | Milad Fadavvi</h3>" 
 #------------------------------------------
 @app.route('/f/<path:path>')
 def send_js(path):
@@ -25,10 +25,18 @@ def SaveData(e='',path=''):
     LogFile.write("Method: {} \n".format(request.method))
     LogFile.write("Path: {} \n".format(path))
     LogFile.write("Headers: [{}]\n".format(request.headers).replace('\r\n',' , '))
-    if len(request.args) > 0:
-            LogFile.write("Get Args: {} \n".format(request.args.to_dict()))
-    if len (request.form) > 0:
+    try:
+        LogFile.write("Get Args: {} \n".format(request.args.to_dict()))
+    except:
+        pass
+    try:   
         LogFile.write("Post Args: {} \n".format(json.dumps(request.form.to_dict())))
+    except:
+        pass
+    try:
+        LogFile.write("JSON Data: {}\n".format(request.get_json()))
+    except:
+        pass
     LogFile.close()
     return '<html><b>{}</b></html>'.format(Arguments.canary) , 200
 #------------------------------------------
