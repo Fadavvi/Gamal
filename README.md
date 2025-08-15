@@ -68,3 +68,13 @@ It downloads and categorizes the most common tools for delivering to the targets
 - [Ligolo-ng](https://github.com/nicocha30/ligolo-ng/) -- agent and proxy
 - [PEASS-ng](https://github.com/peass-ng/PEASS-ng/)
 - [AzureHound](https://github.com/SpecterOps/AzureHound)
+
+## Disclaimer
+
+ This tool is intended for use only in a legal and legitimate manner. Unfortunately, there is no way to build offensive tools useful to the legitimate infosec industry while simultaneously preventing malicious actors from abusing them.
+
+
+## To do
+
+- [ ] DNS exfiltration capability
+- [ ] Adding more tools to the helper script
