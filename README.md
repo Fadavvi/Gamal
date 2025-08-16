@@ -1,6 +1,6 @@
 # Gamal
 
-A tiny flask app for helping pentesters, red-teamers and bug hunters in data exfileration, SSRF, XSS, Session Hijacking, Session Riding and Cookie Thieve.
+A tiny flask app for helping red-teamers, purple teamers, and pentesters in delivery, data exfiltration, and some attacks (SSRF, XXE, XSS, Session Hijacking, Session Riding).
 
 ## Install & usage
 
@@ -8,7 +8,7 @@ A tiny flask app for helping pentesters, red-teamers and bug hunters in data exf
 cd /opt
 git clone github.com/Fadavvi/Gamal
 cd Gamal
-python3 -m pip install flask
+sudo apt install python3-flask #or python3 -m pip install flask
 python3 gamal.py
 ```  
 
@@ -57,9 +57,10 @@ If you use `user` and `host` parameters in the upload URL, they will be used in 
 ```
 
 outputfile:
+
 `{host}--{user}--{request.remote_addr}--{random-uuid4}-{RealFileName}`
 
-## Gamal helper script
+## Gamal helper script (additional tools)
 
 It downloads and categorizes the most common tools for delivering to the targets (Windows / Linux / macOS)
 
@@ -68,6 +69,8 @@ It downloads and categorizes the most common tools for delivering to the targets
 - [Ligolo-ng](https://github.com/nicocha30/ligolo-ng/) -- agent and proxy
 - [PEASS-ng](https://github.com/peass-ng/PEASS-ng/)
 - [AzureHound](https://github.com/SpecterOps/AzureHound)
+- [Traitor](https://github.com/liamg/traitor)
+- Basic webshells (asp / aspx / jsp / php)
 
 ## Disclaimer
 
@@ -77,4 +80,5 @@ It downloads and categorizes the most common tools for delivering to the targets
 ## To do
 
 - [ ] DNS exfiltration capability
+- [ ] ICMP exfiltration capability
 - [ ] Adding more tools to the helper script
