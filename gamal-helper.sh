@@ -3,7 +3,7 @@
 echo "Run 'sudo apt install p7zip-full wget curl -y' first!"
 ####################################################
 cd f
-mkdir --parents win linux mac
+mkdir --parents win linux mac web
 ####################################################
 cd win
 
@@ -32,6 +32,11 @@ curl -s https://api.github.com/repos/SpecterOps/AzureHound/releases/latest | gre
 7z x AzureHound*.zip
 rm -f AzureHound*.zip
 
+wget --quiet https://nmap.org/dist/ncat-portable-5.59BETA1.zip
+7z x ncat-portable-5.59BETA1.zip
+mv ncat-portable-5.59BETA1/ncat.exe .
+rm -rf ncat-portable-5.59BETA1
+
 ####################################################
 cd linux
 
@@ -50,6 +55,9 @@ curl -s https://api.github.com/repos/SpecterOps/AzureHound/releases/latest | gre
 7z x AzureHound*.zip
 rm -f AzureHound*.zip
 
+curl -s https://api.github.com/repos/liamg/traitor/releases/latest | grep "browser_download_url.*amd64*" | cut -d : -f 2,3 | tr -d \" | wget -qi -
+
+
 ####################################################
 cd mac
 
@@ -65,3 +73,11 @@ rm -f ligolo/README.md ligolo/LICENSE ligolo-ng*.tar.gz
 curl -s https://api.github.com/repos/SpecterOps/AzureHound/releases/latest | grep "browser_download_url.*darwin*" | cut -d : -f 2,3 | tr -d \" | wget -qi -
 7z x AzureHound*.zip
 rm -f AzureHound*.zip
+
+####################################################
+cd web
+
+curl -s https://raw.githubusercontent.com/BlackArch/webshells/refs/heads/master/asp/cmdasp.asp -o cmdasp.asp
+curl -s https://raw.githubusercontent.com/BlackArch/webshells/refs/heads/master/aspx/cmdasp.aspx -o cmdasp.aspx
+curl -s https://raw.githubusercontent.com/BlackArch/webshells/refs/heads/master/jsp/cmdjsp.jsp -o cmdjsp.jsp 
+curl -s https://raw.githubusercontent.com/BlackArch/webshells/refs/heads/master/php/pws.php -o cmdphp.php
