@@ -14,7 +14,7 @@ os.makedirs(UploadPath, exist_ok=True)
 #------------------------------------------
 @app.route('/info', methods=['GET','POST']) # Print info 
 def info():
-    return "<h3>Gamal v1.0.2 | Milad Fadavvi</h3>" 
+    return "<h3>Gamal v1.0.3 | Milad Fadavvi</h3>" 
 #------------------------------------------
 @app.route('/f/<path:path>') #Servs files
 def send_js(path):
@@ -30,7 +30,7 @@ def upload_file():
         return jsonify({"error": "No file selected"}), 400
     
     # Save file to 'received' directory
-    filepath = os.path.join(UploadPath, request.remote_addr + '-' + str(uuid.uuid1()) + '-' + file.filename)
+    FilePath = os.path.join(UploadPath, request.remote_addr + '-' + str(uuid.uuid1()) + '-' + file.filename)
     
     LogFile = open (Arguments.log, "a+")
     LogFile.write("-" * 33 + '\n')
@@ -44,16 +44,17 @@ def upload_file():
         HostName = secure_filename(request.args.get('host',''))
         User = secure_filename(request.args.get('user',''))
         FileName = secure_filename(file.filename)
-        UniqueName = f"{HostName}--{User}--{request.remote_addr}--{uuid.uuid4()}-{FileName}"
-        filepath = os.path.join(UploadPath, UniqueName)
+        UniqueName = f"{User}--{request.remote_addr}-{FileName}"
+        os.makedirs(name= UploadPath+ '/'+ HostName, exist_ok=True)
+        FilePath = os.path.join(UploadPath, HostName + '/' + UniqueName)
     except:
         pass
 
-    if not os.path.abspath(filepath).startswith(os.path.abspath(UploadPath) + os.sep):
+    if not os.path.abspath(FilePath).startswith(os.path.abspath(UploadPath) + os.sep):
         return jsonify({"error": "Go Hack Yourself!"}), 400
     
     LogFile.close()
-    file.save(filepath)
+    file.save(FilePath)
 
     return jsonify({"message": f"File uploaded successfully!"}), 200
 #------------------------------------------
@@ -87,7 +88,7 @@ def SaveData(e='',path=''):
 if __name__ == "__main__":
     global Arguments #!!!
     #------------------------------------------
-    parser = argparse.ArgumentParser(description='Gamal v1.0.2:\nA tiny flask app for helping pentesters, red-teamers and bug hunters in data exfileration, SSRF, XSS, Session Hijacking, Session Riding and Cookie Thieve.')
+    parser = argparse.ArgumentParser(description='Gamal v1.0.3:\nA tiny flask app for helping red-teamers, purple teamers, and pentesters in delivery, data exfiltration, and some attacks (SSRF, XXE, XSS, Session Hijacking, Session Riding).\n\n')
     parser.add_argument('--log', default='gamal.log' , help='Path to the log file')
     parser.add_argument('--port', default=1337 , help='Port / HTTPs')
     parser.add_argument('--ip', default='0.0.0.0' , help='IP e.g. : 0.0.0.0 or 127.0.0.1')
