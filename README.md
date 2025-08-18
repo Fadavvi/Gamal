@@ -58,18 +58,19 @@ If you use `user` and `host` parameters in the upload URL, they will be used in 
 
 outputfile:
 
-`{host}--{user}--{request.remote_addr}--{random-uuid4}-{RealFileName}`
+`received/{host}/{user}--{request.remote_addr}-{RealFileName}`
 
 ## Gamal helper script (additional tools)
 
 It downloads and categorizes the most common tools for delivering to the targets (Windows / Linux / macOS)
 
 - [Mimikatz](https://github.com/gentilkiwi/mimikatz/)
-- [SharpCollection](https://github.com/Flangvik/SharpCollection/) -- Read the README file before you use them in your operations.
+- [SharpCollection](https://github.com/Flangvik/SharpCollection/) -- Read the README file before you use it in your operations.
 - [Ligolo-ng](https://github.com/nicocha30/ligolo-ng/) -- agent and proxy
 - [PEASS-ng](https://github.com/peass-ng/PEASS-ng/)
 - [AzureHound](https://github.com/SpecterOps/AzureHound)
 - [Traitor](https://github.com/liamg/traitor)
+- [Ncat](https://nmap.org/ncat/)
 - Basic webshells (asp / aspx / jsp / php)
 
 ## Disclaimer
@@ -81,4 +82,5 @@ It downloads and categorizes the most common tools for delivering to the targets
 
 - [ ] DNS exfiltration capability
 - [ ] ICMP exfiltration capability
+- [ ] Improving the logging format
 - [ ] Adding more tools to the helper script
