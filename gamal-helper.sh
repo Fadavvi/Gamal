@@ -8,9 +8,9 @@ mkdir --parents win linux mac web
 cd win
 
 wget --quiet https://github.com/gentilkiwi/mimikatz/releases/latest/download/mimikatz_trunk.zip
-7z x mimikatz_trunk.zip -o./mimikatznk > /dev/null
-mv mimikatz_trunk/x64/ mimikatz64
-rm -rf mimikatz_trunk/ mimikatz_trunk.zip
+7z x mimikatz_trunk.zip -o./mimikatznk &> /dev/null
+mv mimikatznk/x64/ mimikatz64
+rm -rf mimikatznk/ mimikatz_trunk.zip
 
 wget --quiet https://github.com/Flangvik/SharpCollection/archive/refs/heads/master.zip
 7z x master.zip > /dev/null
