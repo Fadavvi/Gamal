@@ -37,6 +37,7 @@ wget --quiet https://nmap.org/dist/ncat-portable-5.59BETA1.zip
 mv ncat-portable-5.59BETA1/ncat.exe .
 rm -rf ncat-portable-5.59BETA1
 
+cd ..
 ####################################################
 cd linux
 
@@ -57,7 +58,7 @@ rm -f AzureHound*.zip
 
 curl -s https://api.github.com/repos/liamg/traitor/releases/latest | grep "browser_download_url.*amd64*" | cut -d : -f 2,3 | tr -d \" | wget -qi -
 
-
+cd ..
 ####################################################
 cd mac
 
@@ -74,6 +75,7 @@ curl -s https://api.github.com/repos/SpecterOps/AzureHound/releases/latest | gre
 7z x AzureHound*.zip
 rm -f AzureHound*.zip
 
+cd ..
 ####################################################
 cd web
 
